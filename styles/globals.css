@@ -468,9 +468,14 @@ max-width: 50%;
   font-size: 20px;
 }
 .total{
-  display: flex;
+  /* display: flex;
   margin-left: 700px;
-  margin-top: 135px;
+  margin-top: 135px; */
+  position: fixed;
+  /* margin-left: 203px; */
+  top: 500px;
+  left: 900px;
+  padding-right: 100px ;
 }
 .total h3{
   font-size: 22px;
@@ -498,9 +503,11 @@ margin-top: 20px;
 margin-bottom: 10px;
 }
 .Payment-container{
-  margin-left: 203px;
-  margin-top: -557px;
-  display:block;
+  position: fixed;
+  /* margin-left: 203px; */
+  top: 100px;
+  left: 900px;
+  display: block;
 }
 .btn-container{
   width: 400px;
@@ -921,9 +928,9 @@ li:hover {
   padding: -10px;
   
 }
-.mb-30{
+/* .mb-30{
   margin: 30px 500px 30px 500px;
-}
+} */
 #mb-300{
   margin: 30px 500px 30px 500px;
   background-color: green;
