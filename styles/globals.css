@@ -57,8 +57,9 @@ width: 100%;
   position: relative;
 }
 .sign-in-btn{
-  margin-top: -35px;
+  margin-top: -15px;
   margin-left: 25px;
+  height: 5px;
 }
 .navbar-Logos{
  position:relative; 
