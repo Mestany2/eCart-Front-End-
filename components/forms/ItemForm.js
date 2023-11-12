@@ -13,6 +13,7 @@ function ItemForm() {
   const { user } = useAuth();
   const [formData, setFormData] = useState({ });
   const [categories, setCategories] = useState();
+  // const [selectedImage, setSelectedImage] = useState(null);
 
   useEffect(() => {
     if (router?.query.itemObj) {
@@ -42,8 +43,7 @@ function ItemForm() {
         ...formData, userId: user[0]?.id,
       };
       createItem(payload);
-      router.push('/');
-    //   router.push('/OrderPage');
+      router.push('/AllItems');
     }
   };
 
@@ -53,7 +53,7 @@ function ItemForm() {
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-30" controlId="formBasicEmail">
           <br />
-          <h1 id="welcome-title"> Add an Item </h1>
+          <h1 id="welcome-title"> {router.query.itemObj ? 'Update' : 'Add'} an Item </h1>
           <br />
           <Form.Label>Item Name</Form.Label>
           <Form.Control as="textarea" name="Name" required placeholder=" Name" value={formData.name} onChange={(e) => setFormData(({ ...formData, name: e.target.value }))} />
@@ -65,13 +65,15 @@ function ItemForm() {
           <Form.Control as="textarea" name="Image" required placeholder="Image" value={formData.image} onChange={(e) => setFormData(({ ...formData, image: e.target.value }))} />
           <Form.Label>Price</Form.Label>
           <Form.Control as="textarea" name="Price" required placeholder="Price" value={formData.price} onChange={(e) => setFormData(({ ...formData, price: e.target.value }))} />
+          <Form.Label>Category</Form.Label>
+
           <FloatingLabel controlId="floatingSelect" label="Category">
             <Form.Select
               aria-label="Category"
               name="categoryId"
               onChange={(e) => setFormData(({ ...formData, categoryId: e.target.value }))}
               className="mb-3"
-              value={formData.categoryId} // FIXME: modify code to remove error
+              value={formData.categoryId}
               required
             >
               <option value="">Select Category</option>
@@ -87,10 +89,36 @@ function ItemForm() {
           }
             </Form.Select>
           </FloatingLabel>
+          {/* <div>
+            {selectedImage && (
+            <div>
+              <img
+                alt="not found"
+                width="250px"
+                src={URL.createObjectURL(selectedImage)}
+              />
+              <br />
+              <button onClick={() => setSelectedImage(null)}>Remove</button>
+            </div>
+            )}
+
+            <br />
+            <br />
+
+            <input
+              type="file"
+              name="myImage"
+              onChange={(event) => {
+                console.log(event.target.files[0]);
+                setSelectedImage(event.target.files[0]);
+              }}
+            />
+          </div> */}
 
         </Form.Group>
+
         <Button id="mb-300" variant="primary" type="submit">
-          Add An Item
+          {router.query.itemObj ? 'Update' : 'Add'} Item
         </Button>
       </Form>
     </>

@@ -24,7 +24,7 @@ export default function ProductDetails() {
   const addItemToOrder = async () => {
     if (order !== 'No Open Order') {
       addItemToOpenOrder(order?.id, item);
-      window.confirm('Item Order');
+      window.alert('Item added ');
     } else {
       const payload = {
         UserId: user[0].id, StatusId: 1,
@@ -34,9 +34,9 @@ export default function ProductDetails() {
       setNewOrder(createdOrder);
       await
       addItemToOpenOrder(createdOrder?.id, item);
-      window.confirm('Item Has Been Added to Your Oder');
+      window.alert('Item Added to The Cart');
     }
-    router.push('/OrderItems');
+    // router.push('/');
   };
 
   useEffect(() => {
