@@ -69,7 +69,6 @@ export default function ListOfOrders() {
                         : order.statusId === 4 ? 'Complete'
                           : 'Status is not set'}
                   </td>
-
                 </tr>
               </tbody>
             ))}
